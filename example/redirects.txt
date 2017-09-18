@@ -1,0 +1,2 @@
+www.example.com http://example.com
+test.example.com http://example.com
