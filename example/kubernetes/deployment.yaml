@@ -1,0 +1,27 @@
+apiVersion: apps/v1beta1 # for versions before 1.6.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: redirector
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: redirector
+    spec:
+      containers:
+      - name: redirector
+        image: philipphug/redirector:v0.1
+        args:
+        - 'serve'
+        - '--default=http://example.example.com'
+        - '--mappings=/config/redirects.txt'
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: config-volume
+          mountPath: /config
+      volumes:
+      - name: config-volume
+        configMap:
+          name: redirector
