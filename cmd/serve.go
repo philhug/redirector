@@ -114,7 +114,7 @@ func init() {
 	RootCmd.AddCommand(serveCmd)
 
 	serveCmd.Flags().StringVarP(&serverInterface, "bind", "", "0.0.0.0", "interface to which the server will bind")
-	serveCmd.Flags().IntVarP(&serverPort, "port", "p", 9090, "port on which the server will listen")
+	serveCmd.Flags().IntVarP(&serverPort, "port", "p", 8080, "port on which the server will listen")
 	serveCmd.Flags().StringVarP(&defaultRedirect, "default", "", "", "default URL to redirect to (e.g. https://www.example.com)")
 	serveCmd.Flags().StringVarP(&mappingFile, "mappings", "", "", "mapping files with redirects")
 }
